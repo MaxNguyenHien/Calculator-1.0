@@ -16,7 +16,10 @@ public class Calculator_Controller implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String src = e.getActionCommand();
 		
-		if(src.equals("1")) {
+		if(src.equals("0")) {
+			this.CCLV.AddNumber(src);
+			this.CCLV.model.setChoose("");
+		}else if(src.equals("1")) {
 			this.CCLV.AddNumber(src);
 			this.CCLV.model.setChoose("");
 		}else if(src.equals("2")) {
@@ -43,9 +46,6 @@ public class Calculator_Controller implements ActionListener {
 		}else if(src.equals("9")) {
 			this.CCLV.AddNumber(src);
 			this.CCLV.model.setChoose("");
-		}else if(src.equals("0")) {
-			this.CCLV.model.setChoose("!");
-			this.CCLV.AddNumber("0");
 		}else if(src.equals("+")) {
 			this.CCLV.Calculate();
 			this.CCLV.model.setSign_Choose("+");
@@ -74,6 +74,10 @@ public class Calculator_Controller implements ActionListener {
 		}else if(src.equals(".")) {
 			this.CCLV.AddNumber(src);
 			this.CCLV.model.setChoose("");
+		}else if(src.equals("Off")) {
+			this.CCLV.Disabled();
+		}else if(src.equals("On")) {
+			this.CCLV.Enabled();
 		}
 		
 	}
